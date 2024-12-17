@@ -1,0 +1,100 @@
+﻿.testimonials-section {
+    background-color: #f9fafb; /* Light background */
+    padding: 50px 20px;
+    text-align: center;
+    color: #111827; /* Dark text */
+}
+
+.testimonials-preheader {
+    font-size: 1.2rem;
+    color: #38bdf8; /* Light blue for the preheader */
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.testimonials-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #111827; /* Dark text */
+    margin-bottom: 30px;
+}
+
+/* Testimonials Grid */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Individual Testimonial Card */
+.testimonial-card {
+    background-color: #ffffff; /* White card background */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: left;
+    position: relative;
+}
+
+/* Testimonial Text Styling */
+.testimonial-text {
+    font-size: 1rem;
+    font-style: italic;
+    color: #374151; /* Medium gray text */
+    margin-bottom: 20px;
+    line-height: 1.6;
+    position: relative;
+}
+
+    .testimonial-text::before,
+    .testimonial-text::after {
+        content: "“";
+        color: #38bdf8; /* Blue quotes */
+        font-size: 2rem;
+        font-weight: bold;
+        position: absolute;
+    }
+
+    .testimonial-text::before {
+        top: -10px;
+        left: -10px;
+    }
+
+    .testimonial-text::after {
+        content: "”";
+        bottom: -10px;
+        right: -10px;
+    }
+
+/* Profile Section Styling */
+.testimonial-profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.profile-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #38bdf8; /* Light blue border */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.profile-details {
+    text-align: left;
+}
+
+.profile-name {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #111827;
+}
+
+.profile-designation {
+    font-size: 0.9rem;
+    color: #6b7280; /* Light gray */
+}

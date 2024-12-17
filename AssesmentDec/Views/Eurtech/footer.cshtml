@@ -1,0 +1,94 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Mvc.Presentation
+@using Sitecore.Data.Fields
+@using Sitecore.Data.Items
+@using AssesmentDec.Models
+@model FooterModel
+
+<link rel="stylesheet" href="~/css/footer.css">
+
+<footer>
+    @if (Model != null && Model.Item != null)
+    {
+        <div class="container">
+            <!-- About Us Section -->
+            <div class="column-about-us">
+                <h4>About Us</h4>
+                <p>@Html.Sitecore().Field("ABout Us", Model.Item)</p>
+                <p>@Html.Sitecore().Field("Intro", Model.Item)</p>
+            </div>
+
+            <!-- Pages Section -->
+            <div class="column-pages">
+                <h4>@Html.Sitecore().Field("PageTitle", Model.Item)</h4>
+                <ul>
+                    @{
+                        MultilistField pagesField = Model.Item.Fields["PageLink"];
+                        if (pagesField != null)
+                        {
+                            foreach (var page in pagesField.GetItems())
+                            {
+                                <li><a href="@page.Paths.FullPath">@Html.Sitecore().Field("link", page)</a></li>
+                            }
+                        }
+                    }
+                </ul>
+            </div>
+
+            <!-- Our Services Section -->
+            <div class="column-services">
+                <h4>@Html.Sitecore().Field("OurServicesTitle", Model.Item)</h4>
+                <ul>
+                    @{
+                        MultilistField servicesField = Model.Item.Fields["OurServicesLinks"];
+                        if (servicesField != null)
+                        {
+                            foreach (var service in servicesField.GetItems())
+                            {
+                                <li><a href="@service.Paths.FullPath">@Html.Sitecore().Field("link", service)</a></li>
+                            }
+                        }
+                    }
+                </ul>
+            </div>
+
+            <!-- Our Availability Section -->
+            <div class="column-availability">
+                <h4>@Html.Sitecore().Field("OurAvailability", Model.Item)</h4>
+                <ul>
+                    @{
+                        MultilistField availabilityField = Model.Item.Fields["OurAvailabilityList"];
+                        if (availabilityField != null)
+                        {
+                            foreach (var service in availabilityField.GetItems())
+                            {
+                                <li><a href="@service.Paths.FullPath">@Html.Sitecore().Field("link", service)</a></li>
+                            }
+                        }
+                    }
+                </ul>
+
+
+                <!-- Our Availability Details -->
+                <div class="OurAvailabilityDiv">
+                    <div class="OurAvailabilityImage">
+                        @Html.Sitecore().Field("OurAvailabilityimage", Model.Item)
+                    </div>
+
+                    <div class="OurAvailabilityText">
+                        @Html.Sitecore().Field("OurAvailabilityText", Model.Item)
+                    </div>
+
+                    <div class="OurAvailabilityNum">
+                        @Html.Sitecore().Field("OurAvailabilityNum", Model.Item)
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright Section -->
+            <div class="copyright">
+                @Html.Sitecore().Field("copyright", Model.Item)
+            </div>
+        </div>
+    }
+</footer>

@@ -1,0 +1,36 @@
+﻿@using Sitecore.Resources.Media
+@using Sitecore.Mvc
+@using Sitecore.Data.Fields
+@using Sitecore.Data.Items
+@model AssesmentDec.Models.ServiceModel
+
+@if (Model != null && Model.Item != null)
+{
+    MultilistField multiselectField2 = Model.Item.Fields["Items"];
+    Item[] serviceItems = multiselectField2.GetItems();
+
+    <div class="main-container">
+        <div>
+            <h1 id="main-container-h1">@Html.Sitecore().Field("Title", Model.Item)</h1>
+        </div>
+        <div class="services-container">
+            @foreach (var item in serviceItems)
+            {
+                <div class="service-card">
+                    <div>
+                        @Html.Sitecore().Field("Image", item)
+                    </div>
+                    <div class="service-title">
+                        @Html.Sitecore().Field("Title", item)
+                    </div>
+                    <div class="service-description">
+                        @Html.Sitecore().Field("Description", item)
+                    </div>
+                    <a class="service-footer" href="#">
+                        @Html.Sitecore().Field("Footer", item)
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+}

@@ -1,0 +1,49 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Mvc.Presentation
+@using Sitecore.Data.Fields
+@using Sitecore.Data.Items
+@using AssesmentDec.Models
+@model EurtechModel
+
+<link rel="stylesheet" href="~/css/header.css">
+
+@if (Model != null && Model.Item != null)
+{
+    <div class="header-container">
+        <div class="logo">
+            <div class="logo-field">
+                @Html.Sitecore().Field("Logo", Model.Item)
+            </div>
+        </div>
+
+        @{
+            MultilistField multiselectField = Model.Item.Fields["NavigationMenu"];
+            Item[] items = multiselectField.GetItems();
+        }
+
+        <div class="features">
+            @if (items != null)
+            {
+                foreach (var item in items)
+                {
+                    <div class="header">
+                        <div class="header-title">
+                            @Html.Sitecore().Field("title", item)
+                        </div>
+                        <div class="header-navlink">
+                            @Html.Sitecore().Field("navlink", item)
+                        </div>
+                        <div class="header-subnav">
+                            @Html.Sitecore().Field("subnav", item)
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+        <a href="#" class="get-appointment">Get Appointment</a>
+
+    </div>
+}
+
+
+

@@ -1,0 +1,112 @@
+﻿
+footer {
+    background-color: #0F1116; 
+    color: #FFFFFF; /* White text */
+    padding: 40px 0; /* Spacing */
+    font-family: Arial, sans-serif;
+}
+
+    footer .container {
+        display: flex;
+        flex-wrap: wrap; /* Ensure it adjusts on smaller screens */
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 0 auto;
+        gap: 20px;
+    }
+
+    footer .column-about-us,
+    footer .column-pages,
+    footer .column-services,
+    footer .column-availability {
+        flex: 1;
+        min-width: 250px; 
+    }
+
+    /* Headings */
+    footer h4 {
+        font-size: 18px;
+        margin-bottom: 15px;
+        color: #FFFFFF;
+        text-transform: uppercase;
+    }
+
+    /* Paragraphs */
+    footer p {
+        font-size: 14px;
+        line-height: 1.6;
+        color: #AAAAAA;
+        margin: 0 0 10px;
+    }
+
+    /* Links Styling */
+    footer ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+        footer ul li {
+            margin-bottom: 10px;
+        }
+
+            footer ul li a {
+                color: #AAAAAA;
+                text-decoration: none;
+                font-size: 14px;
+                transition: color 0.3s ease;
+            }
+
+                footer ul li a:hover {
+                    color: #FFFFFF; /* White on hover */
+                    text-decoration: underline;
+                }
+
+/* Availability Section */
+.OurAvailabilityDiv {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.OurAvailabilityImage img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover; /* Ensure image looks consistent */
+    border-radius: 50%; /* Circular image */
+}
+
+.OurAvailabilityText {
+    font-size: 14px;
+    color: #FFFFFF;
+}
+
+.OurAvailabilityNum {
+    font-size: 16px;
+    font-weight: bold;
+    color: #7B39F7; /* Highlight color */
+}
+
+/* Copyright Section */
+.copyright {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 12px;
+    color: #AAAAAA;
+    border-top: 1px solid #444444;
+    padding-top: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    footer .container {
+        flex-direction: column; /* Stack columns on smaller screens */
+        text-align: center;
+    }
+
+    .OurAvailabilityDiv {
+        flex-direction: column;
+        align-items: center;
+    }
+}

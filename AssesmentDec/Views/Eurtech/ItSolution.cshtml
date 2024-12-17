@@ -1,0 +1,40 @@
+﻿@using Sitecore.Mvc
+@using AssesmentDec.Models
+@using Sitecore.Data.Fields
+@using Sitecore.Data.Items
+@model ItSolutionModel
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ITSolution</title>
+<link rel="stylesheet" href="~/css/itsolution.css" />
+</head>
+
+@if (Model != null && Model.Item != null)
+{
+    <div class="hero-section">
+        <div class="hero-background">
+            @Html.Sitecore().Field("bgImage", Model.Item)
+        </div>
+        <div class="hero-content">
+            <div class="subtext">
+                @Html.Sitecore().Field("SubText", Model.Item)
+            </div>
+            <div class="heading">
+                @Html.Sitecore().Field("Heading", Model.Item)
+            </div>
+            <div class="subheading">
+                @Html.Sitecore().Field("SubHeading", Model.Item)
+            </div>
+            <div class="buttons">
+                <div class="button1">
+                    @Html.Sitecore().Field("Button1", Model.Item)
+                </div>
+                <div class="button2">
+                    @Html.Sitecore().Field("Button2", Model.Item)
+                </div>
+                <bold>@Html.Sitecore().Field("IntroLink", Model.Item)</bold>
+            </div>
+        </div>
+    </div>
+}

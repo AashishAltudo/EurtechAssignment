@@ -1,0 +1,42 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Data.Fields
+@using Sitecore.Data.Items
+@model  AssesmentDec.Models.testimonialsModel
+
+<link rel="stylesheet" href="~/css/Testimonials.css">
+
+
+<div class="full">
+
+    @if (Model != null && Model.Item != null)
+    {
+
+        MultilistField multiselectField = Model.Item.Fields["subitems"];
+        Item[] testimonialItems = multiselectField.GetItems();
+
+        <div class="testimonials-section">
+            <h2 class="testimonials-preheader">@Html.Sitecore().Field("subtitle", testimonialItems)</h2>
+            <h1 class="testimonials-title">@Html.Sitecore().Field("title", testimonialItems)</h1>
+            <div class="testimonials-grid">
+                @foreach (var item in testimonialItems)
+                {
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            @Html.Sitecore().Field("Description", item)
+                        </div>
+                        <div class="testimonial-profile">
+                            <div class="profile-image">@Html.Sitecore().Field("img", item)</div>
+                            <div class="profile-details">
+                                <span class="profile-name">@Html.Sitecore().Field("name", item)</span>
+                                <span class="profile-designation">@Html.Sitecore().Field("position", item)</span>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+
+    }
+
+</div>
